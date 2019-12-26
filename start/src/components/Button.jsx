@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+function setCounter() {}
 function Button() {
-  return <button>TEST</button>;
+  const [counter, setCounter] = useState(0);
+  return <button onClick={() => setCounter(counter + 1)}>{counter}</button>;
 }
 
 export default Button;
