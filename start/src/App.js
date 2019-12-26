@@ -1,10 +1,9 @@
-import React from 'react'
-import logo from './logo.svg'
-import './App.css'
-import Button from './components/Button'
+import React from 'react';
+import './App.css';
+import Button from './components/Button';
 
-function App () {
-  return <Button />
+function App() {
+  return <Button />;
 }
 
-export default App
+export default App;
