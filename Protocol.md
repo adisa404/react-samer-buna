@@ -32,3 +32,9 @@ function Button() {
   return <button onClick={handleClick}>{counter}</button>;
 }
 ```
+
+- display counter's value in the display component
+
+# one way flow of data
+
+we move the state up to the highest component
