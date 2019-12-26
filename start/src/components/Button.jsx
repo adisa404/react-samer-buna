@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function Button(props) {
-  return <button onClick={props.onClickFunction}>Increase</button>;
+  const handleClick = () => props.onClickFunction(props.increment);
+  return <button onClick={handleClick}>+{props.increment}</button>;
 }
 
 export default Button;
