@@ -1,8 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 
-const App = ({ title }) => {
-  return <div className="header">{title}</div>;
-};
+class App extends Component {
+  state = {};
+  render() {
+    return <div className="header">{this.props.title}</div>;
+  }
+}
 
 export default App;
