@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 class Card extends Component {
   state = {};
   render() {
+    const { avatar_url, name, company } = this.props.data;
     return (
       <div className="github-profile">
-        <img src="https://placehold.it/100" />
+        <img src={avatar_url} />
         <div className="info">
-          <div className="name">Name ...</div>
-          <div className="company">Company ...</div>
+          <div className="name">{name}</div>
+          <div className="company">{company}</div>
         </div>
       </div>
     );
