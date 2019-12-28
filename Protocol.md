@@ -38,3 +38,23 @@ function Button() {
 # one way flow of data
 
 we move the state up to the highest component
+
+# controlled element / setting state in class components
+
+obsereve data in input field
+
+define value of input in state and initialize it
+
+```js
+state = { userName: "" };
+```
+
+```js
+value={this.state.userName}
+```
+
+add on change event to input
+
+```js
+onChange={(event)=> this.setState({userName: event.target.value})}
+```
