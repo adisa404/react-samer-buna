@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CardList from './components/CardList';
+import Form from './components/Form';
 import './App.scss';
 
 class App extends Component {
@@ -25,7 +26,8 @@ class App extends Component {
     return (
       <div>
         <div className="header">{this.props.title}</div>
-        <CardList data={testData} />
+        <Form />
+        <CardList profiles={testData} />
       </div>
     );
   }
