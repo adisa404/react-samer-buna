@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Card extends Component {
   state = {};
   render() {
-    const { avatar_url, name, company } = this.props.data;
+    const { avatar_url, name, company } = this.props;
     return (
       <div className="github-profile">
         <img src={avatar_url} />

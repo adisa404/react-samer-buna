@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from './components/Card';
+import CardList from './components/CardList';
 import './App.scss';
 
 class App extends Component {
@@ -25,8 +25,7 @@ class App extends Component {
     return (
       <div>
         <div className="header">{this.props.title}</div>
-        <Card data={testData[0]} />
-        <Card data={testData[1]} />
+        <CardList data={testData} />
       </div>
     );
   }
