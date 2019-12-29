@@ -2,6 +2,7 @@ import React from 'react';
 import { utils } from '../utils/utils';
 
 const StarMatch = () => {
+  const stars = 6;
   return (
     <div className="game">
       <div className="help">
@@ -9,7 +10,7 @@ const StarMatch = () => {
       </div>
       <div className="body">
         <div className="left">
-          {utils.range(1, 9).map(starId => (
+          {utils.range(1, stars).map(starId => (
             <div key={starId} className="star" />
           ))}
         </div>
