@@ -1,4 +1,5 @@
 import React from 'react';
+import { utils } from '../utils/utils';
 
 const StarMatch = () => {
   return (
@@ -8,15 +9,9 @@ const StarMatch = () => {
       </div>
       <div className="body">
         <div className="left">
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
+          {utils.range(1, 9).map(starId => (
+            <div key={starId} className="star" />
+          ))}
         </div>
         <div className="right">
           <button className="number">1</button>
