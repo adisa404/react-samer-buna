@@ -6,7 +6,7 @@ useState() returns:
 - an updater function (setter)
 
 ```js
-const [counter, setCounter] = useState(0);
+const [counter, setCounter] = useState(0); // read: counter=0;
 
 const [currentStateValue, functionToSetNewStateValue] = useState(
   initialStateValue
@@ -62,3 +62,11 @@ onChange={(event)=> this.setState({userName: event.target.value})}
 # data
 
 https://api.github.com/users/sanjinharacic
+
+# state
+
+every var that is going to change in the UI should most probably be in state (general rule of thumb)
+
+```js
+const [stars, setStars] = useState(utils.random(1, 9)); //read: stars = utils.random(1, 9)
+```
