@@ -5,8 +5,8 @@ const CardList = props => {
   const { profiles } = props;
   return (
     <div>
-      {profiles.map((card, index) => (
-        <Card {...card} />
+      {profiles.map(card => (
+        <Card key={card.id} {...card} />
       ))}
     </div>
   );

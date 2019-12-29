@@ -23,11 +23,15 @@ const testData = [
 
 class App extends Component {
   state = { profiles: testData };
+
+  addNewProfile = profileData => {
+    this.setState({ profiles: [...this.state.profiles, profileData] });
+  };
   render() {
     return (
       <div>
         <div className="header">{this.props.title}</div>
-        <Form />
+        <Form onSubmit={this.addNewProfile} />
         <CardList profiles={this.state.profiles} />
       </div>
     );
