@@ -70,3 +70,7 @@ every var that is going to change in the UI should most probably be in state (ge
 ```js
 const [stars, setStars] = useState(utils.random(1, 9)); //read: stars = utils.random(1, 9)
 ```
+
+# components
+
+extract elements to components if the have similar data and behaviour
