@@ -5,6 +5,26 @@ import StarsDisplay from './StarsDisplay';
 
 const StarMatch = () => {
   const [stars, setStars] = useState(utils.random(1, 9));
+  const [availableNumbers, setAvailableNumbers] = useState([1, 2, 3, 4, 5]);
+  const [candidateNumbers, setCandidateNumbers] = useState([2, 3]);
+
+  // if the sum of numbers is greater than the number of stars shown
+  const candidatesAreWrong = () => {
+    return utils.sum(candidateNumbers) > stars;
+  };
+
+  const getStatus = number => {
+    if (!availableNumbers.includes(number)) {
+      return 'used';
+    }
+
+    if (candidateNumbers.includes(number)) {
+      return candidatesAreWrong() ? 'wrong' : 'candidate';
+    }
+
+    return 'available'; // default
+  };
+
   return (
     <div className='game'>
       <div className='help'>
@@ -16,7 +36,11 @@ const StarMatch = () => {
         </div>
         <div className='right'>
           {utils.range(1, 9).map(number => (
-            <PlayNumber key={number} number={number} />
+            <PlayNumber
+              key={number}
+              number={number}
+              color={getStatus(number)}
+            />
           ))}
         </div>
       </div>
