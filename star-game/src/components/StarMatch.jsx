@@ -5,8 +5,8 @@ import StarsDisplay from './StarsDisplay';
 
 const StarMatch = () => {
   const [stars, setStars] = useState(utils.random(1, 9));
-  const [availableNumbers, setAvailableNumbers] = useState([1, 2, 3, 4, 5]);
-  const [candidateNumbers, setCandidateNumbers] = useState([2, 3]);
+  const [availableNumbers, setAvailableNumbers] = useState(utils.range(1, 9));
+  const [candidateNumbers, setCandidateNumbers] = useState([]);
 
   // if the sum of numbers is greater than the number of stars shown
   const candidatesAreWrong = () => {
