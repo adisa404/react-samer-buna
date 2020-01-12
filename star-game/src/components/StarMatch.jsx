@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { utils } from '../utils/utils';
 import PlayNumber from './PlayNumber';
+import PlayAgain from './PlayAgain';
 import StarsDisplay from './StarsDisplay';
 
 const StarMatch = () => {
   const [stars, setStars] = useState(utils.random(1, 9));
   const [availableNumbers, setAvailableNumbers] = useState(utils.range(1, 9));
   const [candidateNumbers, setCandidateNumbers] = useState([]);
+  const [secondsRemaining, setSecondsRemaining] = useState(10);
 
+  const gameIsDone = availableNumbers.length === 0;
   // if the sum of numbers is greater than the number of stars shown
   const candidatesAreWrong = () => {
     return utils.sum(candidateNumbers) > stars;
@@ -52,6 +55,12 @@ const StarMatch = () => {
     }
   };
 
+  const resetGame = () => {
+    setStars(utils.random(1, 9));
+    setAvailableNumbers(utils.range(1, 9));
+    setCandidateNumbers([]);
+  };
+
   return (
     <div className='game'>
       <div className='help'>
@@ -59,7 +68,11 @@ const StarMatch = () => {
       </div>
       <div className='body'>
         <div className='left'>
-          <StarsDisplay stars={stars} />
+          {gameIsDone ? (
+            <PlayAgain onClick={resetGame} />
+          ) : (
+            <StarsDisplay stars={stars} />
+          )}
         </div>
         <div className='right'>
           {utils.range(1, 9).map(number => (
@@ -72,7 +85,7 @@ const StarMatch = () => {
           ))}
         </div>
       </div>
-      <div className='timer'>Time Remaining: 10</div>
+      <div className='timer'>Time Remaining: {secondsRemaining}</div>
     </div>
   );
 };
