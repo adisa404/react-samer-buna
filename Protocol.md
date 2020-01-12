@@ -88,3 +88,11 @@ const [availableNumbers, setAvailableNumbers] = useState([1,2,3,4,5]);
   wrong number
 
   if the sum of numbers is greater then the stars then we have wrong numbers
+
+  candidates are chosen numbers
+
+  onNumberClick
+
+  if used then return
+
+  else add clicked number to candidates array

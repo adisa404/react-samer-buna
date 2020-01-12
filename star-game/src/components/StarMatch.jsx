@@ -25,6 +25,27 @@ const StarMatch = () => {
     return 'available'; // default
   };
 
+  const onNumberClick = (number, currentStatus) => {
+    //currentStatus => newStatus
+    if (currentStatus === 'used') return;
+
+    const newCandidateNums = candidateNumbers.concat(number);
+
+    if (utils.sum(newCandidateNums) !== stars) {
+      setCandidateNumbers(newCandidateNums);
+    } else {
+      // case: right pick
+      // remove the newCandidate number from the set of available numbers
+      const newAvailableNumbers = availableNumbers.filter(
+        n => !newCandidateNums.includes(n),
+      );
+      //reset stars randomly
+      setStars(utils.randomSumIn(newAvailableNumbers, 9));
+      setAvailableNumbers(newAvailableNumbers);
+      setCandidateNumbers([]);
+    }
+  };
+
   return (
     <div className='game'>
       <div className='help'>
@@ -40,6 +61,7 @@ const StarMatch = () => {
               key={number}
               number={number}
               color={getStatus(number)}
+              onClick={onNumberClick}
             />
           ))}
         </div>
