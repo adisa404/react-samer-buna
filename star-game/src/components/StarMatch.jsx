@@ -29,18 +29,20 @@ const StarMatch = () => {
     //currentStatus => newStatus
     if (currentStatus === 'used') return;
 
-    const newCandidateNums =
-      currentStatus === 'available'
-        ? candidateNumbers.concat(number)
-        : candidateNumbers.filter(cn => cn !== number);
+    // const newCandidateNumbers =
+    //   currentStatus === 'available'
+    //     ? candidateNumbers.concat(number)
+    //     : candidateNumbers.filter(cn => cn !== number);
 
-    if (utils.sum(newCandidateNums) !== stars) {
-      setCandidateNumbers(newCandidateNums);
+    const newCandidateNumbers = candidateNumbers.concat(number);
+
+    if (utils.sum(newCandidateNumbers) !== stars) {
+      setCandidateNumbers(newCandidateNumbers);
     } else {
       // case: right pick
       // remove the newCandidate number from the set of available numbers
       const newAvailableNumbers = availableNumbers.filter(
-        n => !newCandidateNums.includes(n),
+        n => !newCandidateNumbers.includes(n),
       );
 
       //reset stars randomly
